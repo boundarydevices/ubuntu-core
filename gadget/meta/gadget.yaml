@@ -1,0 +1,13 @@
+device-tree-origin: kernel
+volumes:
+  nitrogen:
+    schema: mbr
+    bootloader: u-boot
+    structure:
+      - type: 0C
+        filesystem: vfat
+        filesystem-label: system-boot
+        size: 128M
+        content:
+          - source: boot-assets/
+            target: /

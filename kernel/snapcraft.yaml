@@ -1,0 +1,30 @@
+name: nitrogen-kernel
+version: 4.1.15-1
+summary: Boundary Devices kernel for Nitrogen
+description: Linux kernel for Boundary Devices Nitrogen platforms
+type: kernel
+architectures: [ armhf ]
+confinement: strict
+grade: stable
+
+parts:
+    kernel:
+        plugin: kernel
+        source: https://github.com/boundarydevices/linux-imx6.git
+        source-type: git
+        source-branch: boundary-imx_4.1.15_2.0.0_ga
+        kdefconfig: [boundary_defconfig]
+        kconfigs:
+            - CONFIG_LOCALVERSION="-boundary-snappy"
+        kernel-image-target: zImage
+        kernel-device-trees:
+            - imx6dl-nit6xlite
+            - imx6dl-nitrogen6_max
+            - imx6dl-nitrogen6x
+            - imx6q-nitrogen6_max
+            - imx6q-nitrogen6x
+            - imx6qp-nitrogen6_max
+            - imx6q-sabrelite
+            - imx6sx-nitrogen6sx
+            - imx7d-nitrogen7
+        build-packages: [bc, kmod, cpio]

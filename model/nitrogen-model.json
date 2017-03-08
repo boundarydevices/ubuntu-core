@@ -1,0 +1,11 @@
+{
+  "type": "model",
+  "authority-id": "F1l7LNEL2SoBv444uUicatsAdRcEPqEa",
+  "brand-id": "F1l7LNEL2SoBv444uUicatsAdRcEPqEa",
+  "series": "16",
+  "model": "nitrogen",
+  "architecture": "armhf",
+  "gadget": "nitrogen-gadget",
+  "kernel": "nitrogen-kernel",
+  "timestamp": "2017-03-08T18:42:42+00:00"
+}

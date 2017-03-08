@@ -1,0 +1,7 @@
+name: nitrogen-gadget
+version: 16.04-1
+summary: Nitrogen platforms support package
+description: Support files for booting Boundary Devices Nitrogen platforms
+type: gadget
+architectures:
+    - armhf
