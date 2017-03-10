@@ -1,17 +1,42 @@
 include common.mk
 
+KERNEL_SRC := $(KERNEL_DIR)/linux-imx6
+KERNEL_BRANCH := boundary-imx_4.1.15_2.0.0_ga
+KERNEL_COMMIT := `git ls-remote https://github.com/boundarydevices/linux-imx6.git $(KERNEL_BRANCH) | awk '{print $$1}'`
+KERNEL_ARCHIVE := https://github.com/boundarydevices/linux-imx6/archive/$(KERNEL_COMMIT).tar.gz
+
+QCACLD_SRC := $(KERNEL_SRC)/drivers/staging/qcacld-2.0
+QCACLD_BRANCH := boundary-LNX.LEH.4.2.2.2-4.5.20.034
+QCACLD_COMMIT := `git ls-remote https://github.com/boundarydevices/qcacld-2.0.git $(QCACLD_BRANCH) | awk '{print $$1}'`
+QCACLD_ARCHIVE := https://github.com/boundarydevices/qcacld-2.0/archive/$(QCACLD_COMMIT).tar.gz
+
 all: build
 
 clean:
 	rm -f nitrogen-kernel*.snap
 	cd $(KERNEL_DIR); snapcraft clean
+	rm -rf $(KERNEL_SRC)
 
 distclean: clean
 	rm -rf $(KERNEL_SRC)
 	rm -rf $(FIRMWARE_PATH)
 
-build:
+build: kernel_src qcacld_src
 	cd $(KERNEL_DIR); snapcraft --target-arch armhf snap
 	mv $(KERNEL_DIR)/$(KERNEL_SNAP) $(OUTPUT_DIR)
+
+kernel_src:
+	if [ ! -f $(KERNEL_SRC)/Makefile ] ; then \
+		curl -L $(KERNEL_ARCHIVE) | tar xz && \
+		mv linux-imx6-* $(KERNEL_SRC) ; \
+	fi
+
+qcacld_src:
+	if [ ! -f $(QCACLD_SRC)/Makefile ] ; then \
+		curl -L $(QCACLD_ARCHIVE) | tar xz && \
+		mv qcacld-2.0-* $(QCACLD_SRC) && \
+		echo 'source "drivers/staging/qcacld-2.0/Kconfig"' >>  $(KERNEL_SRC)/drivers/staging/Kconfig && \
+		echo 'obj-$$(CONFIG_QCA_CLD_WLAN)	+= qcacld-2.0/' >> $(KERNEL_SRC)/drivers/staging/Makefile ; \
+	fi
 
 .PHONY: build
