@@ -1,0 +1,10 @@
+gadget/boot-assets/
+gadget/uboot.conf
+gadget/uboot.env
+kernel/parts/
+kernel/prime/
+kernel/linux-imx6/
+kernel/stage/
+*.snap
+*.img
+*.img.gz
