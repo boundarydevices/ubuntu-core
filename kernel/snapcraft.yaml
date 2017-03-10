@@ -38,3 +38,7 @@ parts:
             - imx6sx-nitrogen6sx
             - imx7d-nitrogen7
         build-packages: [bc, kmod, cpio]
+    firmware:
+        plugin: tar-content
+        source: firmware.tar
+        destination: firmware
