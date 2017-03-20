@@ -11,7 +11,7 @@ Then you need to install the following packages in order to build Ubuntu Core.
 ~$ sudo apt update
 ~$ sudo apt install -y build-essential u-boot-tools lzop gcc-arm-linux-gnueabihf
 ~$ sudo apt install -y snap snapcraft
-~$ sudo snap install ubuntu-image
+~$ sudo snap install ubuntu-image --devmode --edge
 ```
 
 You can check that the `snap` is working on your host machine by listing the available packages:
