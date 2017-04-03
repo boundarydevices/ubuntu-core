@@ -1,7 +1,7 @@
 setenv bootargs "cpu=${cpu} board=${board}"
 
 if itest.s "x" == "x${core_rev}" ; then
-	core_rev=1267
+	core_rev=1617
 fi
 if itest.s "x" == "x${kernel_rev}" ; then
 	kernel_rev=x1

@@ -2,7 +2,7 @@ include common.mk
 
 SNAPPY_IMAGE := ubuntu-core-nitrogen-`date +%Y%m%d`.img
 DEFAULT_IMAGE := nitrogen.img
-UBUNTU_CORE_CH := stable
+UBUNTU_CORE_CH := edge
 UBUNTU_IMAGE=/snap/bin/ubuntu-image
 
 all: build
