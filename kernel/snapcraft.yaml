@@ -30,11 +30,14 @@ parts:
         kernel-device-trees:
             - imx6dl-nit6xlite
             - imx6dl-nitrogen6_max
+            - imx6dl-nitrogen6_som2
             - imx6dl-nitrogen6x
             - imx6q-nitrogen6_max
+            - imx6q-nitrogen6_som2
             - imx6q-nitrogen6x
-            - imx6qp-nitrogen6_max
             - imx6q-sabrelite
+            - imx6qp-nitrogen6_max
+            - imx6qp-nitrogen6_som2
             - imx6sx-nitrogen6sx
             - imx7d-nitrogen7
         build-packages: [bc, kmod, cpio]
