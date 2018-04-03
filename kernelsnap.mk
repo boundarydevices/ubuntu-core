@@ -1,12 +1,12 @@
 include common.mk
 
 KERNEL_SRC := $(KERNEL_DIR)/linux-imx6
-KERNEL_BRANCH := boundary-imx_4.1.15_2.0.0_ga
+KERNEL_BRANCH := boundary-imx_4.9.x_1.0.0_ga
 KERNEL_COMMIT := `git ls-remote https://github.com/boundarydevices/linux-imx6.git $(KERNEL_BRANCH) | awk '{print $$1}'`
 KERNEL_ARCHIVE := https://github.com/boundarydevices/linux-imx6/archive/$(KERNEL_COMMIT).tar.gz
 
 QCACLD_SRC := $(KERNEL_SRC)/drivers/staging/qcacld-2.0
-QCACLD_BRANCH := boundary-LNX.LEH.4.2.2.2-4.5.20.034
+QCACLD_BRANCH := boundary-LNX.LEH.4.2.2.2
 QCACLD_COMMIT := `git ls-remote https://github.com/boundarydevices/qcacld-2.0.git $(QCACLD_BRANCH) | awk '{print $$1}'`
 QCACLD_ARCHIVE := https://github.com/boundarydevices/qcacld-2.0/archive/$(QCACLD_COMMIT).tar.gz
 

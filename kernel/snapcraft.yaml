@@ -1,5 +1,5 @@
 name: nitrogen-kernel
-version: 4.1.15-1
+version: 4.9.x-1
 summary: Boundary Devices kernel for Nitrogen
 description: Linux kernel for Boundary Devices Nitrogen platforms
 type: kernel
