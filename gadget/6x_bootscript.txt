@@ -1,15 +1,5 @@
 setenv bootargs "cpu=${cpu} board=${board}"
 
-if itest.s "x" == "x${core_rev}" ; then
-	core_rev=1617
-fi
-if itest.s "x" == "x${kernel_rev}" ; then
-	kernel_rev=x1
-fi
-
-setenv snap_core core_${core_rev}.snap
-setenv snap_kernel nitrogen-kernel_${kernel_rev}.snap
-
 if itest.s "x" != "x${active_partition}" ; then
 	setenv bootpart ${active_partition}
 fi
@@ -27,6 +17,22 @@ if itest.s x6SX == "x${cpu}" || itest.s x7D == "x${cpu}"; then
 	a_fdt=0x83000000
 	a_ramdisk=0x83800000
 	a_initrd=0x83a00000
+fi
+
+# Import U-Boot variables set at build time
+
+if load ${dtype} ${disk}:${bootpart} ${a_script} uboot.env ; then
+	env import -b ${a_script} ${filesize}
+fi
+
+if itest.s "x" == "x${snap_core}" ; then
+	echo "snap_core not defined, wrong environment!"
+	exit;
+fi
+
+if itest.s "x" == "x${snap_kernel}" ; then
+	echo "snap_kernel not defined, wrong environment!"
+	exit;
 fi
 
 if itest.s "x" == "x${board}" ; then
@@ -53,10 +59,6 @@ fi
 
 if itest.s x${bootpart} == x ; then
 	bootpart=1
-fi
-
-if load ${dtype} ${disk}:${bootpart} ${a_script} uEnv.txt ; then
-    env import -t ${a_script} ${filesize}
 fi
 
 if itest.s x == x${bootdir} ; then
