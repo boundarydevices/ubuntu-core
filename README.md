@@ -11,15 +11,15 @@ Then you need to install the following packages in order to build Ubuntu Core.
 ~$ sudo apt update
 ~$ sudo apt install -y build-essential u-boot-tools lzop gcc-arm-linux-gnueabihf
 ~$ sudo apt install -y snap snapcraft
-~$ sudo snap install ubuntu-image --devmode --edge
+~$ sudo snap install ubuntu-image --classic --edge
 ```
 
 You can check that the `snap` is working on your host machine by listing the available packages:
 ```
 ~$ snap list
-Name          Version     Rev   Developer  Notes
-core          16-2        1337  canonical  -
-ubuntu-image  0.15+snap3  48    canonical  devmode
+Name          Version    Rev   Tracking  Developer  Notes
+core          16-2.32.1  4327  stable    canonical  core
+ubuntu-image  1.3+snap1  98    edge      canonical  classic
 ```
 
 **NOTE**: make sure that you have the latest `snapcraft` tool available, using versions < 2.27.1 have proven to be troublesome.
@@ -46,7 +46,7 @@ The output file should be named `ubuntu-core-nitrogen-yyyymmdd.img.gz`.
 You can then simply flash it using `zcat` and `dd`.
 
 ```
-~/ubuntu-core$ zcat ubuntu-core-nitrogen-xxxx.img.gz | sudo dd of=/dev/sdX bs=1M
+~/ubuntu-core$ zcat ubuntu-core-nitrogen-xxxx.img.gz | sudo dd of=/dev/sdX bs=1M oflag=sync
 ```
 
 ### Gadget build
