@@ -3,9 +3,10 @@
   "authority-id": "cSHJrD1ibfuZyjwtBnY4qRfIBGMdjtrO",
   "brand-id": "cSHJrD1ibfuZyjwtBnY4qRfIBGMdjtrO",
   "series": "16",
+  "base": "core20",
   "model": "nitrogen",
   "architecture": "armhf",
   "gadget": "nitrogen-gadget",
   "kernel": "nitrogen-kernel",
-  "timestamp": "2018-04-05T14:59:51+00:00"
+  "timestamp": "2020-10-26T18:24:49+00:00"
 }
