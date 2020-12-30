@@ -1,7 +1,7 @@
 include common.mk
 
 KERNEL_SRC := $(KERNEL_DIR)/linux-imx6
-KERNEL_BRANCH := boundary-imx_4.9.x_1.0.0_ga
+KERNEL_BRANCH := boundary-imx_5.4.x_2.2.0
 KERNEL_COMMIT := `git ls-remote https://github.com/boundarydevices/linux-imx6.git $(KERNEL_BRANCH) | awk '{print $$1}'`
 KERNEL_ARCHIVE := https://github.com/boundarydevices/linux-imx6/archive/$(KERNEL_COMMIT).tar.gz
 
@@ -26,6 +26,7 @@ distclean: clean
 	rm -rf $(FIRMWARE_PATH)
 
 build: kernel_src qcacld_src firmware
+	unset ARCH CROSS_COMPILE
 	cd $(KERNEL_DIR); snapcraft --target-arch armhf snap
 	mv $(KERNEL_DIR)/$(KERNEL_SNAP) $(OUTPUT_DIR)
 
