@@ -3,7 +3,7 @@ include common.mk
 DEFAULT_IMAGE := nitrogen.img
 UBUNTU_CORE_CHANNEL ?= stable
 UBUNTU_IMAGE := /snap/bin/ubuntu-image
-SNAPPY_IMAGE := ubuntu-core-nitrogen-$(UBUNTU_CORE_CHANNEL)-`date +%Y%m%d`.img
+SNAPPY_IMAGE := ubuntu-core20-armhf-nitrogen-$(UBUNTU_CORE_CHANNEL)-`date +%Y%m%d`.img
 
 all: build
 
@@ -13,12 +13,11 @@ distclean: clean
 
 build-snappy:
 	@echo "build snappy..."
-	$(UBUNTU_IMAGE) \
+	$(UBUNTU_IMAGE) snap \
 		-c $(UBUNTU_CORE_CHANNEL) \
 		--image-size 1G \
-		--extra-snaps $(GADGET_SNAP) \
-		--extra-snaps $(KERNEL_SNAP) \
-		--extra-snaps snapweb \
+		--snap $(GADGET_SNAP) \
+		--snap $(KERNEL_SNAP) \
 		-O $(OUTPUT_DIR) \
 		$(IMAGE_MODEL)
 
