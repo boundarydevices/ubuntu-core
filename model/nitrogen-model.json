@@ -3,7 +3,7 @@
   "authority-id": "cSHJrD1ibfuZyjwtBnY4qRfIBGMdjtrO",
   "brand-id": "cSHJrD1ibfuZyjwtBnY4qRfIBGMdjtrO",
   "series": "16",
-  "base": "core20",
+  "base": "core18",
   "model": "nitrogen",
   "architecture": "armhf",
   "gadget": "nitrogen-gadget",

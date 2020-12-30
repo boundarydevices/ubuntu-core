@@ -1,8 +1,8 @@
 name: nitrogen-gadget
-version: 20-1
+version: 18-1
 summary: Nitrogen platforms support package
 description: Support files for booting Boundary Devices Nitrogen platforms
 type: gadget
-base: core20
+base: core18
 architectures:
     - armhf
