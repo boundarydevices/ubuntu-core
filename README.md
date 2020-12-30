@@ -17,9 +17,12 @@ Then you need to install the following packages in order to build Ubuntu Core.
 You can check that the `snap` is working on your host machine by listing the available packages:
 ```
 ~$ snap list
-Name          Version    Rev   Tracking  Developer  Notes
-core          16-2.32.1  4327  stable    canonical  core
-ubuntu-image  1.3+snap1  98    edge      canonical  classic
+Name          Version               Rev    Tracking       Publisher   Notes
+core          16-2.48               10577  latest/stable  canonical✓  core
+core18        20201210              1944   latest/stable  canonical✓  base
+core20        20201210              904    latest/stable  canonical✓  base
+snapcraft     4.4.4                 5821   latest/stable  canonical✓  classic
+ubuntu-image  1.10+snap1            187    latest/stable  canonical✓  classic
 ```
 
 **NOTE**: make sure that you have the latest `snapcraft` tool available, using versions < 2.27.1 have proven to be troublesome.
