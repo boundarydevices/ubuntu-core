@@ -29,20 +29,33 @@ parts:
             - CONFIG_WLAN_SYNC_TSF=y
             - CONFIG_WLAN_UDP_RESPONSE_OFFLOAD=y
             - CONFIG_WLAN_WOW_PULSE=y
-        kernel-image-target: zImage
+        kernel-image-target: Image
         kernel-device-trees:
-            - imx6dl-nit6xlite
-            - imx6dl-nitrogen6_max
-            - imx6dl-nitrogen6_som2
-            - imx6dl-nitrogen6x
-            - imx6q-nitrogen6_max
-            - imx6q-nitrogen6_som2
-            - imx6q-nitrogen6x
-            - imx6q-sabrelite
-            - imx6qp-nitrogen6_max
-            - imx6qp-nitrogen6_som2
-            - imx6sx-nitrogen6sx
-            - imx7d-nitrogen7
+            - freescale/imx8mm-nitrogen8_lite
+            - freescale/imx8mm-nitrogen8mm
+            - freescale/imx8mm-nitrogen8mm-m4
+            - freescale/imx8mm-nitrogen8mm_rev2
+            - freescale/imx8mm-nitrogen8mm_rev2-m4
+            - freescale/imx8mm-nitrogen8mm_som
+            - freescale/imx8mm-nitrogen8mm_som-m4
+            - freescale/imx8mm-nitrogen8mm_som-mcp2518fd
+            - freescale/imx8mm-nitrogen8mm_som-mcp25625
+            - freescale/imx8mm-nitrogen8mm_som-tc358743
+            - freescale/imx8mm-nitrogen8mm-tc358743
+            - freescale/imx8mn-nitrogen8mn
+            - freescale/imx8mn-nitrogen8mn_som
+            - freescale/imx8mn-nitrogen8mn_som-m4
+            - freescale/imx8mn-nitrogen8_nano
+            - freescale/imx8mn-nitrogen8_nano-m4
+            - freescale/imx8mp-nitrogen8mp
+            - freescale/imx8mq-nitrogen8m
+            - freescale/imx8mq-nitrogen8m-edp
+            - freescale/imx8mq-nitrogen8m-m4
+            - freescale/imx8mq-nitrogen8m_som
+            - freescale/imx8mq-nitrogen8m_som-m4
+            - freescale/imx8mq-nitrogen8m_som_sd
+            - freescale/imx8mq-nitrogen8m-tc358743
+            - freescale/imx8mq-nitrogen8m-tc358840
         build-packages:
             - bison
             - flex
