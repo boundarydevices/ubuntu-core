@@ -121,7 +121,7 @@ _INITRD_SNAP_FILE = "{snap_name}_{series}{flavour}_{architecture}.snap"
 default_kernel_image_target = {
     "amd64": "bzImage",
     "i386": "bzImage",
-    "armhf": "zImage",
+    "arm64": "zImage",
     "arm64": "Image.gz",
     "powerpc": "uImage",
     "ppc64el": "vmlinux.strip",

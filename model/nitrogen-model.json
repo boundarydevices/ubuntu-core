@@ -5,7 +5,7 @@
   "series": "16",
   "base": "core20",
   "model": "nitrogen",
-  "architecture": "armhf",
+  "architecture": "arm64",
   "grade": "signed",
   "timestamp": "2021-02-08T14:42:55+00:00",
   "snaps": [

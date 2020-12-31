@@ -5,7 +5,7 @@ description: Support files for booting Boundary Devices Nitrogen platforms
 type: gadget
 base: core20
 architectures:
-    - armhf
+    - arm64
 confinement: strict
 grade: stable
 slots:

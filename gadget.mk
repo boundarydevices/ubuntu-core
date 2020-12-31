@@ -29,7 +29,7 @@ preload: u-boot
 	mkenvimage -r -s 4096 -o $(GADGET_DIR)/boot.sel - < /dev/null
 
 snappy: preload
-	snapcraft --target-arch armhf pack gadget
+	snapcraft --target-arch arm64 pack gadget
 
 build: u-boot preload snappy
 

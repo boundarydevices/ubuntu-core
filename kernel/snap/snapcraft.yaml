@@ -6,7 +6,7 @@ type: kernel
 build-base: core18
 architectures:
   - build-on: amd64
-    run-on: armhf
+    run-on: arm64
 confinement: strict
 grade: stable
 
