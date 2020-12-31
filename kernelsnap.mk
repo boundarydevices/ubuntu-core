@@ -27,7 +27,7 @@ distclean: clean
 
 build: kernel_src qcacld_src firmware
 	unset ARCH CROSS_COMPILE
-	cd $(KERNEL_DIR); snapcraft --target-arch armhf snap
+	cd $(KERNEL_DIR); snapcraft --target-arch arm64 snap
 	mv $(KERNEL_DIR)/$(KERNEL_SNAP) $(OUTPUT_DIR)
 
 kernel_src:

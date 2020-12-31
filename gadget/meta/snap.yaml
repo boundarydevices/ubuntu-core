@@ -5,4 +5,4 @@ description: Support files for booting Boundary Devices Nitrogen platforms
 type: gadget
 base: core18
 architectures:
-    - armhf
+    - arm64

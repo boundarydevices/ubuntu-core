@@ -5,7 +5,7 @@
   "series": "16",
   "base": "core18",
   "model": "nitrogen",
-  "architecture": "armhf",
+  "architecture": "arm64",
   "gadget": "nitrogen-gadget",
   "kernel": "nitrogen-kernel",
   "timestamp": "2020-10-26T18:24:49+00:00"

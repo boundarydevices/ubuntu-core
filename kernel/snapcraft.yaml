@@ -3,7 +3,7 @@ version: 5.4.x-2.2
 summary: Boundary Devices kernel for Nitrogen
 description: Linux kernel for Boundary Devices Nitrogen platforms
 type: kernel
-architectures: [ armhf ]
+architectures: [ arm64 ]
 confinement: strict
 grade: stable
 
