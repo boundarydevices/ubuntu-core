@@ -5,24 +5,15 @@ UBUNTU_CORE_CHANNEL ?= stable
 UBUNTU_IMAGE := /snap/bin/ubuntu-image
 SNAPPY_IMAGE := ubuntu-core20-armhf-nitrogen-$(UBUNTU_CORE_CHANNEL)-`date +%Y%m%d`.img
 
-# use snap from store for prod release
-ifeq ($(PROD),1)
-GADGET_SNAP := nitrogen-gadget
-KERNEL_SNAP := nitrogen-kernel
-endif
-
 all: build
 
 clean:
-	rm -f $(OUTPUT_DIR)/*.img.xz
+	rm -f $(OUTPUT_DIR)/*.img.gz
 distclean: clean
 
 build-snappy:
 	@echo "build snappy..."
 	$(UBUNTU_IMAGE) snap \
-		-c $(UBUNTU_CORE_CHANNEL) \
-		--snap $(GADGET_SNAP) \
-		--snap $(KERNEL_SNAP) \
 		-O $(OUTPUT_DIR) \
 		$(IMAGE_MODEL)
 
