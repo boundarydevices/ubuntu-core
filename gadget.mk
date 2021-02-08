@@ -22,8 +22,7 @@ u-boot:
 	mkimage -A arm -O linux -T script -C none -a 0 -e 0 -n "boot script" -d $(GADGET_DIR)/bootscript.txt $(GADGET_DIR)/boot-assets/boot.scr
 
 preload: u-boot
-	mkenvimage -r -s 8192 -o $(GADGET_DIR)/uboot.env $(GADGET_DIR)/uboot.env.in
-	@if [ ! -f $(GADGET_DIR)/uboot.conf ]; then ln -s uboot.env $(GADGET_DIR)/uboot.conf; fi
+	touch $(GADGET_DIR)/uboot.conf
 
 snappy: preload
 	snapcraft --target-arch armhf snap gadget
