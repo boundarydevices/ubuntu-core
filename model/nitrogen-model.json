@@ -6,7 +6,26 @@
   "base": "core20",
   "model": "nitrogen",
   "architecture": "armhf",
-  "gadget": "nitrogen-gadget",
-  "kernel": "nitrogen-kernel",
-  "timestamp": "2020-10-26T18:24:49+00:00"
+  "grade": "signed",
+  "timestamp": "2021-02-08T14:42:55+00:00",
+  "snaps": [
+      {
+          "name": "nitrogen-gadget",
+          "type": "gadget",
+          "id": "TGR15wyIWKt9rkjaAqvUxAki7v6tTvcX",
+          "default-channel": "latest/stable"
+      },
+      {
+          "name": "nitrogen-kernel",
+          "type": "kernel",
+          "id": "AoD8HmJSL3coRpkPAKvF8Hp5ow2b5FNj",
+          "default-channel": "latest/stable"
+      },
+      {
+          "name": "core20",
+          "type": "base",
+          "id": "DLqre5XGLbDqg9jPtiAhRRjDuPVa5X1q",
+          "default-channel": "latest/stable"
+      }
+  ]
 }
