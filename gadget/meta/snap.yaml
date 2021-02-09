@@ -6,3 +6,12 @@ type: gadget
 base: core20
 architectures:
     - armhf
+confinement: strict
+grade: stable
+parts:
+  gadget:
+    plugin: nil
+    prime:
+      - boot-assets/*
+      - uboot.conf
+      - boot.sel

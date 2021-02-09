@@ -23,9 +23,13 @@ u-boot:
 
 preload: u-boot
 	touch $(GADGET_DIR)/uboot.conf
+	# the boot.sel file is currently installed onto ubuntu-boot from the gadget
+	# but that will probably change soon so that snapd installs it instead
+	# it is empty now, but snapd will write vars to it
+	mkenvimage -r -s 4096 -o $(GADGET_DIR)/boot.sel - < /dev/null
 
 snappy: preload
-	snapcraft --target-arch armhf snap gadget
+	snapcraft --target-arch armhf pack gadget
 
 build: u-boot preload snappy
 
