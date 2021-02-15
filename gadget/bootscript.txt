@@ -32,18 +32,50 @@ setexpr a_initrd  ${a_base} + 0x03a00000
 setexpr a_reset_cause_marker ${a_base} + 0x80
 setexpr a_reset_cause	     ${a_base} + 0x84
 
+if itest.s x${distro_bootpart} == x ; then
+	distro_bootpart=1
+fi
+
 # Import U-Boot variables set at build time
-if load ${devtype} ${devnum}:${distro_bootpart} ${a_script} uboot.env ; then
-	env import -b ${a_script} ${filesize}
+setenv core_state "/uboot/ubuntu/boot.sel"
+if load ${devtype} ${devnum}:${distro_bootpart} ${a_script} ${core_state}; then
+	# Core image; set defaults for core's state then import from the first
+	# boot.sel file. Then load the mutable boot.sel file from the next partition
+	setenv kernel_vars "snap_kernel snap_try_kernel kernel_status"
+	setenv recovery_vars "snapd_recovery_mode snapd_recovery_system snapd_recovery_kernel"
+	setenv snapd_recovery_mode "install"
+	setenv snapd_standard_params "panic=-1 systemd.gpt_auto=0 rd.systemd.unit=basic.target net.ifnames=0"
+
+	# Remove CRC check for now as u-boot might not have redundant env
+	env import ${a_script} ${filesize} ${recovery_vars}
+	setenv bootargs "${bootargs} snapd_recovery_mode=${snapd_recovery_mode} snapd_recovery_system=${snapd_recovery_system} ${snapd_standard_params}"
+
+	if test "${snapd_recovery_mode}" = "run"; then
+		setexpr kernel_bootpart ${distro_bootpart} + 1
+		load ${devtype} ${devnum}:${kernel_bootpart} ${a_script} ${core_state}
+		env import ${a_script} ${filesize} ${kernel_vars}
+		setenv kernel_name "${snap_kernel}"
+
+		if test -n "${kernel_status}"; then
+			if test "${kernel_status}" = "try"; then
+				if test -n "${snap_try_kernel}"; then
+					setenv kernel_status trying
+					setenv kernel_name "${snap_try_kernel}"
+				fi
+			elif test "${kernel_status}" = "trying"; then
+				setenv kernel_status ""
+			fi
+			env export -c ${a_script} ${kernel_vars}
+			save ${devtype} ${devnum}:${kernel_bootpart} ${a_script} ${core_state} ${filesize}
+		fi
+		setenv kernel_prefix "uboot/ubuntu/${kernel_name}/"
+	else
+		setenv kernel_prefix "systems/${snapd_recovery_system}/kernel/"
+	fi
 fi
 
-if itest.s "x" == "x${snap_core}" ; then
-	echo "snap_core not defined, wrong environment!"
-	exit;
-fi
-
-if itest.s "x" == "x${snap_kernel}" ; then
-	echo "snap_kernel not defined, wrong environment!"
+if itest.s "x" == "x${kernel_prefix}" ; then
+	echo "kernel_prefix not defined, wrong environment!"
 	exit;
 fi
 
@@ -80,15 +112,7 @@ if itest.s "x" == "x${fdt_file}" ; then
 	fi
 fi
 
-if itest.s x${distro_bootpart} == x ; then
-	distro_bootpart=1
-fi
-
-if itest.s x == x${bootdir} ; then
-	bootdir=/${snap_kernel}/
-	dtbsdir=${bootdir}dtbs/
-fi
-
+setenv dtbsdir ${kernel_prefix}dtbs/
 if load ${devtype} ${devnum}:${distro_bootpart} ${a_fdt} ${dtbsdir}${fdt_file} ; then
 	fdt addr ${a_fdt}
 else
@@ -127,9 +151,6 @@ if itest.s "x" != "x${cmd_mipi}" ; then
 fi
 
 setenv bootargs "${bootargs} console=${console},115200 vmalloc=400M consoleblank=0 rootwait fixrtc"
-setenv bootargs "${bootargs} root=LABEL=writable"
-setenv snappy_cmdline "net.ifnames=0 init=/lib/systemd/systemd ro panic=-1 snap_core=${snap_core} snap_kernel=${snap_kernel}"
-setenv bootargs "${bootargs} ${snappy_cmdline}"
 
 if itest.s "x" != "x${disable_msi}" ; then
 	setenv bootargs ${bootargs} pci=nomsi
@@ -168,8 +189,8 @@ if itest.s "x" != "x${show_env}" ; then
 	printenv
 fi
 
-if load ${devtype} ${devnum}:${distro_bootpart} ${a_zImage} ${bootdir}kernel.img ; then
-	if load ${devtype} ${devnum}:${distro_bootpart} ${a_initrd} ${bootdir}initrd.img ; then
+if load ${devtype} ${devnum}:${distro_bootpart} ${a_zImage} ${kernel_prefix}kernel.img ; then
+	if load ${devtype} ${devnum}:${distro_bootpart} ${a_initrd} ${kernel_prefix}initrd.img ; then
 		${bootcommand} ${a_zImage} ${a_initrd}:${filesize} ${a_fdt} ;
 	else
 		setenv bootargs ${bootargs} rw

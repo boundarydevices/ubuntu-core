@@ -8,7 +8,7 @@ volumes:
         role: system-seed
         filesystem: vfat
         type: 0C
-        size: 128M
+        size: 1200M
         content:
           - source: boot-assets/
             target: /
