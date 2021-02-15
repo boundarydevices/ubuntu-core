@@ -26,6 +26,12 @@
           "type": "base",
           "id": "DLqre5XGLbDqg9jPtiAhRRjDuPVa5X1q",
           "default-channel": "latest/stable"
+      },
+      {
+          "name": "snapd",
+          "type": "snapd",
+          "id": "PMrrV4ml8uWuEUDBT8dSGnKUYbevVhc4",
+          "default-channel": "latest/stable"
       }
   ]
 }
