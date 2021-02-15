@@ -10,7 +10,7 @@ QCACLD_BRANCH := boundary-LNX.LEH.4.2.2.2
 QCACLD_COMMIT := `git ls-remote https://github.com/boundarydevices/qcacld-2.0.git $(QCACLD_BRANCH) | awk '{print $$1}'`
 QCACLD_ARCHIVE := https://github.com/boundarydevices/qcacld-2.0/archive/$(QCACLD_COMMIT).tar.gz
 
-FIRMWARE_PATH := $(KERNEL_DIR)/firmware.tar
+FIRMWARE_PATH := $(KERNEL_DIR)/firmware
 FIRMWARE_URL := http://linode.boundarydevices.com/snappy/firmware.tar
 
 all: build
@@ -45,8 +45,9 @@ qcacld_src:
 	fi
 
 firmware:
-	if [ ! -f $(FIRMWARE_PATH) ] ; then \
-		wget $(FIRMWARE_URL) -O $(FIRMWARE_PATH) ; \
+	if [ ! -d $(FIRMWARE_PATH) ] ; then \
+		mkdir -p $(FIRMWARE_PATH) ; \
+		curl $(FIRMWARE_URL) | tar xv -C $(FIRMWARE_PATH) ; \
 	fi
 
 .PHONY: build

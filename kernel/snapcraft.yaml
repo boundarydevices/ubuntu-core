@@ -43,6 +43,8 @@ parts:
         build-packages: [bc, kmod, cpio]
         kernel-with-firmware: false
     firmware:
-        plugin: tar-content
-        source: firmware.tar
-        destination: firmware
+        plugin: nil
+        source: firmware
+        override-build: |
+            mkdir -p $SNAPCRAFT_PART_INSTALL/firmware
+            cp -av ./* $SNAPCRAFT_PART_INSTALL/firmware/
