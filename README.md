@@ -36,21 +36,6 @@ Simply clone this repository:
 ~$ cd ubuntu-core
 ```
 
-### Full build
-
-In order to build the whole OS image, you just need to issue the following:
-```
-~/ubuntu-core$ make
-```
-
-The output file should be named `ubuntu-coreXX-<arch>-nitrogen-yyyymmdd.img.gz`.
-
-You can then simply flash it using `zcat` and `dd`.
-
-```
-~/ubuntu-core$ zcat ubuntu-core*.img.gz | sudo dd of=/dev/sdX bs=1M oflag=sync
-```
-
 ### Gadget build
 
 If you just wish to build the `gadget`:
@@ -60,9 +45,16 @@ If you just wish to build the `gadget`:
 
 ### Kernel build
 
-If you just wish to build the `kernel`:
+If you don't build from a Focal 20.04 OS, we recommend using LXD:
 ```
-~/ubuntu-core$ make kernel
+~$ sudo snap install lxd
+~$ sudo lxd init --auto
+~$ sudo lxc launch ubuntu:20.04 focal
+~$ sudo lxc shell focal
+```
+Then you can simply build the `kernelsnap`:
+```
+~/ubuntu-core$ make kernelsnap
 ```
 
 ### Image generation
@@ -70,4 +62,14 @@ If you just wish to build the `kernel`:
 If you re-built the `kernel` or the `gadget` manually, you can simply generate the image:
 ```
 ~/ubuntu-core$ make snappy
+```
+
+## Flashing instructions
+
+The output file should be named `ubuntu-coreXX-<arch>-nitrogen-yyyymmdd.img.gz`.
+
+You can then simply flash it using `zcat` and `dd`.
+
+```
+~/ubuntu-core$ zcat ubuntu-core*.img.gz | sudo dd of=/dev/sdX bs=1M oflag=sync
 ```
