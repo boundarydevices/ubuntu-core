@@ -13,13 +13,13 @@
           "name": "nitrogen-gadget",
           "type": "gadget",
           "id": "TGR15wyIWKt9rkjaAqvUxAki7v6tTvcX",
-          "default-channel": "latest/stable"
+          "default-channel": "20/stable"
       },
       {
           "name": "nitrogen-kernel",
           "type": "kernel",
           "id": "AoD8HmJSL3coRpkPAKvF8Hp5ow2b5FNj",
-          "default-channel": "latest/stable"
+          "default-channel": "20/stable"
       },
       {
           "name": "core20",

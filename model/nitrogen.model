@@ -8,12 +8,12 @@ base: core20
 grade: signed
 snaps:
   -
-    default-channel: latest/stable
+    default-channel: 20/stable
     id: TGR15wyIWKt9rkjaAqvUxAki7v6tTvcX
     name: nitrogen-gadget
     type: gadget
   -
-    default-channel: latest/stable
+    default-channel: 20/stable
     id: AoD8HmJSL3coRpkPAKvF8Hp5ow2b5FNj
     name: nitrogen-kernel
     type: kernel
@@ -30,13 +30,13 @@ snaps:
 timestamp: 2021-02-08T14:42:55+00:00
 sign-key-sha3-384: tuY3TR8YytGSguoxQrzWIWl12FTHAmz1_p7gke7h1RNqoKEAI7RAmWNTdCVQ6VzU
 
-AcLBcwQAAQoAHRYhBELX2/vtEVb+ag4RW5FXJl2C316XBQJgKkHPAAoJEJFXJl2C316XKlUQAIU/
-FKUCR5Zsx4dtRUJR9ISf054t0oy1HZnpCyoCC3GrMg6duP8aTuNjWk5ToSrgJ8P2UM7No2J+mAP3
-RkKD5MTPiIYk338fHR1n0HWZrmbsAKOktOj2kOKx19Z2/jN0xZQEyUCpgaD4+vE5N7aC/xNWejAy
-9MS6+CHTJgOXVuB6RG4p4yYZ/2SFq0MXq59vTBE9dpsRpN3EHVBHJzJGChmArtK0wYwhH9elj4po
-GHiiMQvsRWY6a6vzDmiq1JFJ3bvwGKoogcZTEJjg0gaNapFL/qaVxFYfxfT6RkPB+dSVBbtEMnmK
-9w3ed876OeILU0WAeurD3elkWUv7pGlGeNsvkpvzES6/lt2BLyEAanRyTSbjGP1zw87l449CeME3
-Vas2F9artkF5NJx6YKLr7AbozQRlBx293oPEgVsq3EqOvBzPA3ktP94xpKxeRtz9Srjggx5Oi/rg
-bYdh52M8KlKv9J9Od1g7HGNWTrnK8Wrr5sxd1QPTrW8SL0tGz/vWWZHj5DzNRK7Howo+8W21OpeT
-JAt53iAxTjlLxEu3KK8bMyubk3tqCzwbC83+ulhkcol0C6Mo51PL6b9gSW4F9xmZ9bP9gfPDXXOO
-nxArXHT/8dxmk1eLUbLlFCOaIRrtexNHiwRTZ2RdVK5+FKO12LVsKjndK+xRXT2JWVpjARc5
+AcLBcwQAAQoAHRYhBELX2/vtEVb+ag4RW5FXJl2C316XBQJgK/XvAAoJEJFXJl2C316XEeYP/1kU
+hCZpca2KE8lDXtxhbB1fml2wA6Qv36LNqEyIc+knWSGR7vdgWba4XY8PCWdYcxVC2gPIeuLklp2S
+QFrEru8FYepZdsaO8ccogiJCYR83cL0bnSSKUE8YBVEhKPnsE6oa9X4qsOj9NTHSA0lFJwZmVro7
+IDSVhdlJdA7a01rerZ4vleVWl7eB4JPpSWL4ug528CCWdhSDDX8qS8FavRspMBNpyRp4Mhh3j8uT
+60CKo3jVyfPui8YIJRcbLldeFlIcTj/rsTO6248T82rObA4VioeVnLxl+L46+bjolQtSsOONItKI
+P4E3q0hh0FD5FNygIVycD+TVSntRspuTxrHAbQZkvKuIRMsHDjeeJlAnixTvSqCCJBfV4bCbPQ1X
+mD2OBFSBieKhvWvL4x2wFihEuxmbp3b9sll6KZyBfWTIvN9yS5OoaxBpbgp4awFKaPooYfEybfhd
+FfOW4OR5LFPpRvRToNH7mFVfXTNxBViT2JjmQskXHjufzlaDz3l7gt0xIcOk14S1/ygwEKVVBrfa
+uL0ZWTbnATOzzUhOA9Rz1onxpE9l+j+kJ2lTrrjoFWZVaHPHOKWfKaSJIxDJSK8ltzxyCS6CYrb1
+pTU3sHul61DQWVNBT+Sjar2dqHvJ2SwzqW6z6dW1rXt8/gFJHSlJyXOriMmSwwCrc3m0h/Ua
