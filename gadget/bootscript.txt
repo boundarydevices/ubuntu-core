@@ -51,8 +51,8 @@ if load ${devtype} ${devnum}:${distro_bootpart} ${a_script} ${core_state}; then
 	setenv bootargs "${bootargs} snapd_recovery_mode=${snapd_recovery_mode} snapd_recovery_system=${snapd_recovery_system} ${snapd_standard_params}"
 
 	if test "${snapd_recovery_mode}" = "run"; then
-		setexpr kernel_bootpart ${distro_bootpart} + 1
-		load ${devtype} ${devnum}:${kernel_bootpart} ${a_script} ${core_state}
+		setexpr distro_bootpart ${distro_bootpart} + 1
+		load ${devtype} ${devnum}:${distro_bootpart} ${a_script} ${core_state}
 		env import ${a_script} ${filesize} ${kernel_vars}
 		setenv kernel_name "${snap_kernel}"
 
@@ -66,7 +66,7 @@ if load ${devtype} ${devnum}:${distro_bootpart} ${a_script} ${core_state}; then
 				setenv kernel_status ""
 			fi
 			env export -c ${a_script} ${kernel_vars}
-			save ${devtype} ${devnum}:${kernel_bootpart} ${a_script} ${core_state} ${filesize}
+			save ${devtype} ${devnum}:${distro_bootpart} ${a_script} ${core_state} ${filesize}
 		fi
 		setenv kernel_prefix "uboot/ubuntu/${kernel_name}/"
 	else
