@@ -3,7 +3,6 @@ version: 5.4.x-2.2
 summary: Boundary Devices kernel for Nitrogen
 description: Linux kernel for Boundary Devices Nitrogen platforms
 type: kernel
-adopt-info: kernel
 build-base: core18
 architectures:
   - build-on: amd64
@@ -45,7 +44,10 @@ parts:
             - imx6sx-nitrogen6sx
             - imx7d-nitrogen7
         build-packages:
+            - bison
+            - flex
             - libssl-dev
+            - lzop
             - u-boot-tools
             - python-is-python3
         kernel-with-firmware: false
