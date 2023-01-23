@@ -3,7 +3,7 @@ gadget/uboot.conf
 gadget/uboot.env
 kernel/parts/
 kernel/prime/
-kernel/linux-imx6/
+kernel/linux*/
 kernel/stage/
 *.snap
 *.img

@@ -1,9 +1,9 @@
 include common.mk
 
-KERNEL_SRC := $(KERNEL_DIR)/linux-imx6
-KERNEL_BRANCH := boundary-imx_5.4.x_2.2.0
-KERNEL_COMMIT := `git ls-remote https://github.com/boundarydevices/linux-imx6.git $(KERNEL_BRANCH) | awk '{print $$1}'`
-KERNEL_ARCHIVE := https://github.com/boundarydevices/linux-imx6/archive/$(KERNEL_COMMIT).tar.gz
+KERNEL_SRC := $(KERNEL_DIR)/linux
+KERNEL_BRANCH := boundary-imx_5.4.x_2.3.0
+KERNEL_COMMIT := `git ls-remote https://github.com/boundarydevices/linux.git $(KERNEL_BRANCH) | awk '{print $$1}'`
+KERNEL_ARCHIVE := https://github.com/boundarydevices/linux/archive/$(KERNEL_COMMIT).tar.gz
 
 QCACLD_SRC := $(KERNEL_SRC)/drivers/staging/qcacld-2.0
 QCACLD_BRANCH := boundary-LNX.LEH.4.2.2.2
@@ -33,7 +33,7 @@ build: kernel_src qcacld_src firmware
 kernel_src:
 	if [ ! -f $(KERNEL_SRC)/Makefile ] ; then \
 		curl -L $(KERNEL_ARCHIVE) | tar xz && \
-		mv linux-imx6-* $(KERNEL_SRC) ; \
+		mv linux-* $(KERNEL_SRC) ; \
 	fi
 
 qcacld_src:

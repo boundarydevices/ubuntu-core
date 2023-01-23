@@ -1,5 +1,5 @@
 name: nitrogen-kernel
-version: 5.4.x-2.2
+version: 5.4.x-2.3
 summary: Boundary Devices kernel for Nitrogen
 description: Linux kernel for Boundary Devices Nitrogen platforms
 type: kernel
@@ -13,7 +13,7 @@ grade: stable
 parts:
     kernel:
         plugin: kernel
-        source: linux-imx6
+        source: linux
         kdefconfig: [boundary_defconfig]
         kconfigs:
             - CONFIG_LOCALVERSION="-boundary-snappy"
@@ -48,6 +48,7 @@ parts:
             - freescale/imx8mn-nitrogen8_nano
             - freescale/imx8mn-nitrogen8_nano-m4
             - freescale/imx8mp-nitrogen8mp
+            - freescale/imx8mp-nitrogen8mp-enc
             - freescale/imx8mq-nitrogen8m
             - freescale/imx8mq-nitrogen8m-edp
             - freescale/imx8mq-nitrogen8m-m4
