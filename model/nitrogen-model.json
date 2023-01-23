@@ -7,7 +7,7 @@
   "model": "nitrogen",
   "architecture": "arm64",
   "grade": "signed",
-  "timestamp": "2021-02-08T14:42:55+00:00",
+  "timestamp": "2023-01-23T13:43:45+00:00",
   "snaps": [
       {
           "name": "nitrogen-gadget",
