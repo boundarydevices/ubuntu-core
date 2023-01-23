@@ -4,12 +4,12 @@ This repository contains every needed to build your own Snappy Ubuntu Core OS im
 
 ## Build requirements
 
-First of all, it is highly recommended to build from **Ubuntu 16.04** or later. Although there are solutions for different OS flavours, some tools are limited to Ubuntu for now.
+First of all, it is highly recommended to build from **Ubuntu 20.04** or later. Although there are solutions for different OS flavours, some tools are limited to Ubuntu for now.
 
 Then you need to install the following packages in order to build Ubuntu Core.
 ```
 ~$ sudo apt update
-~$ sudo apt install -y build-essential u-boot-tools lzop snapd \
+~$ sudo apt install -y build-essential u-boot-tools snapd \
    gcc-arm-linux-gnueabihf gcc-aarch64-linux-gnu
 ~$ sudo snap install snapcraft --classic
 ~$ sudo snap install ubuntu-image --classic
@@ -18,12 +18,12 @@ Then you need to install the following packages in order to build Ubuntu Core.
 You can check that the `snap` is working on your host machine by listing the available packages:
 ```
 ~$ snap list
-Name          Version               Rev    Tracking       Publisher   Notes
-core          16-2.48               10577  latest/stable  canonical✓  core
-core18        20201210              1944   latest/stable  canonical✓  base
-core20        20201210              904    latest/stable  canonical✓  base
-snapcraft     4.4.4                 5821   latest/stable  canonical✓  classic
-ubuntu-image  1.10+snap1            187    latest/stable  canonical✓  classic
+Name               Version                     Rev    Tracking       Publisher   Notes
+core               16-2.58                     14447  latest/stable  canonical✓  core
+core18             20221212                    2667   latest/stable  canonical✓  base
+core20             20221212                    1778   latest/stable  canonical✓  base
+snapcraft          6.1                         7201   6.x/stable     canonical✓  classic
+ubuntu-image       2.2+snap10                  321    latest/stable  canonical✓  classic
 ```
 
 ## Build procedure
